@@ -3,7 +3,7 @@
  [{description, "bankingapi managed by Nova"},
   {vsn, "0.1.0"},
   {registered, []},
-  {mod, { bankingapi_app, []}},
+  {mod, { bankingapi, []}},
   {included_applications, []},
   {applications,
    [
