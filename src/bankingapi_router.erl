@@ -11,9 +11,9 @@ routes(_Environment) ->
       #{prefix=>"/currency",
         security=>false,
         routes=>[
-            {"/",{currrency_controller,index},#{methods=>[get,options]}},
-            {"/get",{currency_controller,get_currency},#{methods=>[get,options]}},
+            {"/",{currency_controller,index},#{methods=>[get,options]}},
+            {"/get",{currency_controller,get},#{methods=>[get,options]}},
             {"/add",{currency_controller,add_currency},#{methods=>[post,options]}},
-             {"/delete",{currency_controller,remove_currency},#{methods=>[post,options]}},
-             {"/update",{currency_controller,update_currency},#{methods=>[post,options]}}
+             {"/remove",{currency_controller,remove_currency},#{methods=>[delete,options]}},
+             {"/update",{currency_controller,update_currency},#{methods=>[put,options]}}
           ]}].

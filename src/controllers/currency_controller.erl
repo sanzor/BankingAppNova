@@ -7,7 +7,7 @@ index(_Req)->
     Data=[#{<<"id">>=>Id,<<"name">>=>Name}||{Id,Name}<-Currencies],
     {json,200,#{},Data}.
 
-get(#{bindings:=#{<<"name">>:=Name}})->
+get(#{parsed_qs:=#{<<"name">>:=Name}})->
     case ets:lookup(currency,Name) of
         []->{status,404};
         [{Name,Value}] ->{json,200,#{},#{<<"name">>=>Name,<<"value">>=>Value}}
@@ -25,6 +25,6 @@ update_currency(#{json:=#{<<"name">>:=Name,<<"value">>:=Value}}=_Req)->
     ets:delete(currency,Name),
     ets:insert(currency, {Name,Value}),
     {status,200}.
-remove_currency(#{bindings:=#{<<"name">>:=Id}}=_Req)->
+remove_currency(#{parsed_qs:=#{<<"name">>:=Id}}=_Req)->
     true=ets:delete(currency, Id),
     {status,200}.

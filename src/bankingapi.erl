@@ -3,7 +3,7 @@
 %% @end
 %%%-------------------------------------------------------------------
 
--module(bankingapi_app).
+-module(bankingapi).
 
 -behaviour(application).
 
